@@ -4,7 +4,13 @@ body {
   color: #f4eff4;
 }
 
+a {
+  color: #f4eff4;
+  text-decoration: none;
+}
+
 .App {
+  min-height: 1080px;
   background: linear-gradient(360deg, #75167d 0%, rgba(200, 89, 209, 0.83) 100%),
     url("./images/background.png") center center/cover;
 }

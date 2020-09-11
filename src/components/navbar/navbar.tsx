@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
 
 interface navbarProps {
@@ -12,17 +13,17 @@ const Navbar = (props: navbarProps) => {
         <li
           className={props.currentPage === "home" ? styles.current : undefined}
         >
-          Home
+          <Link to="/">Home</Link>
         </li>
         <li
           className={
             props.currentPage === "dashboard" ? styles.current : undefined
           }
         >
-          Dashboard
+          <Link to="/dashboard">Dashboard</Link>
         </li>
         <li className={props.currentPage === "contact" ? "current" : undefined}>
-          Contact
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </div>
