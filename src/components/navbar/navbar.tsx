@@ -22,7 +22,11 @@ const Navbar = (props: navbarProps) => {
         >
           <Link to="/dashboard">Dashboard</Link>
         </li>
-        <li className={props.currentPage === "contact" ? "current" : undefined}>
+        <li
+          className={
+            props.currentPage === "contact" ? styles.current : undefined
+          }
+        >
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

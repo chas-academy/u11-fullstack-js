@@ -1,0 +1,50 @@
+.container {
+  width: 80%;
+  border-radius: 10px;
+  margin: 77px auto;
+  padding: 20px;
+}
+
+.container h2 {
+  font-size: 48px;
+  text-align: center;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+}
+
+.left,
+.right {
+  width: 50%;
+  height: 100%;
+}
+
+.left p {
+  max-width: 500px;
+  font-size: 36px;
+  margin: 30px auto;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.right div {
+  margin: 20px;
+}
+
+.right p {
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 20px;
+  font-size: 36px;
+  text-align: right;
+}
+
+.right span {
+  margin-left: 40px;
+}

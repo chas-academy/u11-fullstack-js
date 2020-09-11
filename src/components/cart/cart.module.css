@@ -11,12 +11,6 @@
   width: 50%;
 }
 
-.right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .left img {
   max-width: 150px;
   margin: 50px;
