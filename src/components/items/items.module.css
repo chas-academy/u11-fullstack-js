@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.heading {
+  margin: 15px;
+  width: 100%;
+}
