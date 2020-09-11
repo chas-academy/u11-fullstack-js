@@ -6,7 +6,7 @@ import SearchBar from "../../components/searchBar/searchBar";
 import Navbar from "../../components/navbar/navbar";
 import Items from "../../components/items/items";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Header />
@@ -21,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
