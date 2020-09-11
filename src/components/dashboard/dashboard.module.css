@@ -1,0 +1,30 @@
+.container {
+  width: 70%;
+  min-height: 600px;
+  border-radius: 10px;
+  margin: 77px auto;
+  display: flex;
+  align-items: flex-end;
+}
+
+.left {
+  width: 20%;
+  height: 550px;
+  margin: 40px;
+  border-radius: 10px;
+  background: #75167d;
+}
+
+.right {
+  width: 70%;
+  height: 470px;
+  margin: 40px;
+  border-radius: 10px;
+  background: #75167d;
+}
+
+.left h3 {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+}
