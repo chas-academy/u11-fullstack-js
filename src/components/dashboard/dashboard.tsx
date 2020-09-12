@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./dashboard.module.css";
 
+import User from "./user/user";
+
 const Dashboard = () => {
   return (
     <div className={`${styles.container} bg-primary shadowed`}>
@@ -12,7 +14,25 @@ const Dashboard = () => {
           <i className="fas fa-users fa-2x"></i>
         </div>
       </div>
-      <div className={styles.right}></div>
+      <div className={styles.right}>
+        <table>
+          <thead>
+            <th>Username</th>
+            <th colSpan={3}>Email</th>
+          </thead>
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+          <User />
+        </table>
+        <button className={`${styles.button} btn`}>+</button>
+      </div>
     </div>
   );
 };
