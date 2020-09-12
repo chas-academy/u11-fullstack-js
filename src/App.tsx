@@ -5,6 +5,7 @@ import "./App.css";
 import HomePage from "./pages/homePage/home";
 import CartPage from "./pages/cartPage/cart";
 import ContactPage from "./pages/contactPage/contact";
+import DashboardPage from "./pages/dashboardPage/dashboard";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/contact" component={ContactPage} />
+          <Route path="/dashboard" component={DashboardPage} />
         </Switch>
       </Router>
     </div>
