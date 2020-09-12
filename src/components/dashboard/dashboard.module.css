@@ -28,3 +28,24 @@
   text-align: center;
   margin: 20px 0;
 }
+
+.left .category {
+  width: 90%;
+  margin: 30px auto;
+  padding: 3px 6px;
+  background: linear-gradient(#a941b2, rgba(255, 255, 255, 0)), #c859d1;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.left .category h4 {
+  font-size: 24px;
+  margin-left: 5px;
+}
+
+.left .category i {
+  margin-right: 5px;
+}

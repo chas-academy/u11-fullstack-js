@@ -7,6 +7,10 @@ const Dashboard = () => {
       <div className={styles.left}>
         <h3>Admin Babryz</h3>
         <hr />
+        <div className={styles.category}>
+          <h4>Users</h4>
+          <i className="fas fa-users fa-2x"></i>
+        </div>
       </div>
       <div className={styles.right}></div>
     </div>
