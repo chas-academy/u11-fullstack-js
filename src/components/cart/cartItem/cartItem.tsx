@@ -1,11 +1,10 @@
 import React from "react";
-import styles from "./cartItem.module.css";
 
 const CartItem = () => {
   return (
-    <tr className={styles.container}>
+    <tr>
       <td>
-        <button className={`btn`}>REMOVE</button>
+        <button className={`btn`}>X</button>
       </td>
       <td>20</td>
       <td>Alpha Boost</td>

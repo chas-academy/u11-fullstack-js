@@ -3,3 +3,10 @@
   justify-content: flex-end;
   margin: 33px 52px;
 }
+
+@media screen and (max-width: 725px) {
+  .top {
+    margin: 33px 5px;
+    justify-content: center;
+  }
+}

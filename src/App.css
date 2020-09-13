@@ -11,6 +11,7 @@ a {
 }
 
 .App {
+  min-height: 100vh;
   padding-bottom: 100px;
   background: linear-gradient(360deg, #75167d 0%, rgba(200, 89, 209, 0.83) 100%),
     url("./images/background.png") center center/cover;

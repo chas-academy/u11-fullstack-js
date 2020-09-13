@@ -21,12 +21,14 @@ const Cart = () => {
           <CartItem />
           <CartItem />
           <CartItem />
+          <CartItem />
+          <CartItem />
           <tr className={styles.tableFooter}>
             <td colSpan={3}>
               <h4>Total: 6000.00 EUR</h4>
             </td>
             <td>
-              <button className={`btn`}>REMOVE</button>
+              <button className={`btn`}>ORDER</button>
             </td>
           </tr>
         </table>

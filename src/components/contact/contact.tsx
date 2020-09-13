@@ -26,12 +26,7 @@ const Contact = () => {
           </div>
           <div>
             <p>
-              Adress:
-              <span>
-                123 Bullshit street,
-                <br />
-                Australia
-              </span>
+              Adress: <span>123 Bullshit street</span>
             </p>
           </div>
           <div>
