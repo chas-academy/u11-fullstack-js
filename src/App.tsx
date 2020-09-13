@@ -8,6 +8,7 @@ import ContactPage from "./pages/contactPage/contact";
 import DashboardPage from "./pages/dashboardPage/dashboard";
 import OrderConfirmationPage from "./pages/orderConfirmationPage/orderConfirmation";
 import SignUpPage from "./pages/signUpPage/signUp";
+import LoginPage from "./pages/loginPage/login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/signUp" component={SignUpPage} />
+          <Route path="/login" component={LoginPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/dashboard" component={DashboardPage} />
