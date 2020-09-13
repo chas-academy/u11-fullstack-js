@@ -9,7 +9,7 @@ const User = (props: UserProps) => {
   return (
     <tr>
       <td>Babryz</td>
-      <td>babryzyt@gmail.com</td>
+      <td>emil.babra@chasacademy.se</td>
       <td>
         <button
           className="btn"

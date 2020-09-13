@@ -8,18 +8,17 @@
 
 .left {
   width: 20%;
-  min-height: 550px;
-  margin: 40px;
+  height: 560px;
+  margin: 20px;
   border-radius: 10px;
   background: #75167d;
   align-self: flex-start;
 }
 
 .right {
-  width: 70%;
-  min-height: 470px;
-  margin: 40px;
-  margin-top: 110px;
+  width: 75%;
+  min-height: 490px;
+  margin: 20px 20px 20px 20px;
   border-radius: 10px;
   background: #75167d;
   align-self: flex-end;
@@ -79,4 +78,96 @@
 
 .form {
   position: absolute;
+}
+
+@media screen and (max-width: 1100px) {
+  .left .category h4,
+  .left .category i {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 925px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 90%;
+    align-self: center;
+  }
+
+  .left {
+    height: 150px;
+  }
+
+  .right button {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .right table,
+  .right thead,
+  .right th,
+  .right td,
+  .right tr {
+    display: block;
+  }
+
+  .right thead th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .right tr {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f4eff4;
+  }
+
+  /* tr {
+    border: 1px solid #f4eff4;
+    padding: 5px;
+  } */
+
+  .right td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .right td:before {
+    display: inline-block;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  .right td:nth-of-type(1):before {
+    content: "Username";
+  }
+  .right td:nth-of-type(2):before {
+    content: "Email";
+  }
+  .right td:nth-of-type(3):before {
+    content: "Edit";
+  }
+  .right td:nth-of-type(4):before {
+    content: "Remove";
+  }
 }
