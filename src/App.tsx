@@ -7,6 +7,7 @@ import CartPage from "./pages/cartPage/cart";
 import ContactPage from "./pages/contactPage/contact";
 import DashboardPage from "./pages/dashboardPage/dashboard";
 import OrderConfirmationPage from "./pages/orderConfirmationPage/orderConfirmation";
+import SignUpPage from "./pages/signUpPage/signUp";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/signUp" component={SignUpPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/dashboard" component={DashboardPage} />

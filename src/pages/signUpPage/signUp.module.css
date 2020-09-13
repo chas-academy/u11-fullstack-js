@@ -1,0 +1,6 @@
+.container {
+  min-height: 100vh;
+  padding: 50px;
+  background: linear-gradient(360deg, #75167d 0%, rgba(200, 89, 209, 0.83) 100%),
+    url("../../images/cars_clashing.png") center center/cover;
+}
