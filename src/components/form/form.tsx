@@ -11,19 +11,23 @@ interface FromProps {
 
 const Form = (props: FromProps) => {
   return (
-    <div className={`${styles.container} bg-primary shadowed`}>
+    <div className={`${styles.container} bg-primary shadowed form-container`}>
       <h2>{props.title}</h2>
       {props.infoTop !== "" ? <p>{props.infoTop}</p> : null}
       <form action="">
         {props.fields.map((field, i) => {
           return (
             <>
-              <label htmlFor={field}>{field}</label>
-              <input type="text" name={field} />
+              <label className="noClose" htmlFor={field}>
+                {field}
+              </label>
+              <input className="noClose" type="text" name={field} />
             </>
           );
         })}
-        <button className="btn">{props.btnTxt}</button>
+        <button className="btn noClose" onClick={(e) => e.preventDefault()}>
+          {props.btnTxt}
+        </button>
         {props.infoBot !== "" ? <p>{props.infoBot}</p> : null}
       </form>
     </div>
