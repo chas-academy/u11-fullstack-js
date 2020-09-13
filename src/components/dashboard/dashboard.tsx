@@ -50,6 +50,8 @@ const Dashboard = () => {
             <th colSpan={3}>Email</th>
           </thead>
           <User showHoverBox={showHoverBox} />
+          <User showHoverBox={showHoverBox} />
+          <User showHoverBox={showHoverBox} />
         </table>
         <button
           className={`${styles.button} btn`}

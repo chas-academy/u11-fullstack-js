@@ -3,7 +3,7 @@
   z-index: 1;
   width: 500px;
   padding: 20px 40px;
-  margin: 20px 20px;
+  margin: 40px auto;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -48,4 +48,35 @@
   font-size: 24px;
   padding: 10px;
   margin: 40px;
+}
+
+@media screen and (max-width: 625px) {
+  .container {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container h2 {
+    font-size: 36px;
+  }
+
+  .container p {
+    font-size: 14px;
+  }
+
+  .container form label {
+    font-size: 14px;
+  }
+
+  .container form input {
+    height: 35px;
+  }
+
+  .container form button {
+    font-size: 18px;
+    padding: 5px;
+    margin: 20px;
+  }
 }
