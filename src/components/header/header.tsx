@@ -16,8 +16,12 @@ const Header = () => {
         <Link to="/cart">
           <img src={Cart} alt="" />
         </Link>
-        <button className={`btn`}>Sign Up</button>
-        <button className={`btn`}>Log In</button>
+        <button className={`btn`}>
+          <Link to="/signUp">Sign Up</Link>
+        </button>
+        <button className={`btn`}>
+          <Link to="/login">Log In</Link>
+        </button>
       </div>
     </header>
   );
