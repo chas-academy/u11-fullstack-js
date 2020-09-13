@@ -2,11 +2,11 @@
   width: 80%;
   border-radius: 10px;
   margin: 77px auto;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .container h2 {
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
   padding: 20px;
 }
@@ -22,8 +22,8 @@
 }
 
 .left p {
-  max-width: 500px;
-  font-size: 36px;
+  width: 70%;
+  font-size: 24px;
   margin: 30px auto;
 }
 
@@ -34,17 +34,55 @@
 }
 
 .right div {
-  margin: 20px;
+  margin-bottom: 10px;
 }
 
 .right p {
   display: inline-block;
   margin-right: 20px;
   margin-top: 20px;
-  font-size: 36px;
-  text-align: right;
+  font-size: 24px;
 }
 
 .right span {
   margin-left: 40px;
+}
+
+@media screen and (max-width: 995px) {
+  .right p,
+  .left p {
+    font-size: 18px;
+  }
+
+  .right span {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    margin: 30px auto;
+  }
+
+  .right p,
+  .left p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    width: 95%;
+    margin: 30px auto;
+  }
+
+  .left,
+  .right {
+    width: 95%;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
 }

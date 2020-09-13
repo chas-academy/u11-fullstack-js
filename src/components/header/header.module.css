@@ -28,3 +28,16 @@
   background-color: #c859d1;
   cursor: pointer;
 }
+
+@media screen and (max-width: 550px) {
+  .logo {
+    margin-left: 15px;
+    font-size: 14px;
+    width: 30%;
+  }
+
+  .buttons img {
+    max-width: 35px;
+    margin-right: 5px;
+  }
+}
