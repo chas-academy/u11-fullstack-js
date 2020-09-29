@@ -1,19 +1,11 @@
-import { gql } from 'apollo-boost'
+import { gql } from 'apollo-boost';
 
 const loginQuery = gql`
-    query login($email: String!, $password: String!) {
-        login(email: $email, $password: $password) {
-            accessToken
-        }
-    }
-`
-
-const anotherQuery = gql`
-  query {
-    defaulttext {
-      name
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      accessToken
     }
   }
-`
+`;
 
-export { loginQuery, anotherQuery }
+export { loginQuery };

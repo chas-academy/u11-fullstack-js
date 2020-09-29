@@ -1,20 +1,20 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import ApolloClient from 'apollo-boost'
-import { ApolloProvider } from 'react-apollo'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+import './App.css';
 
-import HomePage from './pages/homePage/home'
-import CartPage from './pages/cartPage/cart'
-import ContactPage from './pages/contactPage/contact'
-import DashboardPage from './pages/dashboardPage/dashboard'
-import OrderConfirmationPage from './pages/orderConfirmationPage/orderConfirmation'
-import SignUpPage from './pages/signUpPage/signUp'
-import LoginPage from './pages/loginPage/login'
+import HomePage from './pages/homePage/home';
+import CartPage from './pages/cartPage/cart';
+import ContactPage from './pages/contactPage/contact';
+import DashboardPage from './pages/dashboardPage/dashboard';
+import OrderConfirmationPage from './pages/orderConfirmationPage/orderConfirmation';
+import SignUpPage from './pages/signUpPage/signUp';
+import LoginPage from './pages/loginPage/login';
 
-const Client = new ApolloClient({
-  uri: 'http:localhost:4000',
-})
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql',
+});
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
         </Router>
       </div>
     </ApolloProvider>
-  )
+  );
 }
 
-export default App
+export default App;
