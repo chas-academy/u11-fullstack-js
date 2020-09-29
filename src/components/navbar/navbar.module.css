@@ -3,18 +3,18 @@
   display: flex;
 }
 
-.container li {
+.container li a {
   font-weight: bold;
   font-size: 24px;
   cursor: pointer;
   padding: 5px 20px;
 }
 
-.container li:hover {
+.container li a:hover {
   background: rgba(240, 131, 248, 0.5);
 }
 
-.current {
+.current a {
   background: rgba(240, 131, 248, 0.6);
 }
 
