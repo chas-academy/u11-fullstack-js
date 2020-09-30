@@ -8,4 +8,13 @@ const loginQuery = gql`
   }
 `;
 
-export { loginQuery };
+const signUpQuery = gql`
+  mutation signUp($username: String!, $email: String!, $password: String!) {
+    signUp(username: $username, email: $email, password: $password) {
+      username
+      admin
+    }
+  }
+`;
+
+export { loginQuery, signUpQuery };

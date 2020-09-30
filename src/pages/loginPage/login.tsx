@@ -1,6 +1,6 @@
 import React, { useState, FunctionComponent } from 'react';
 import styles from './login.module.css';
-import { useQuery, useMutation } from 'react-apollo';
+import { useMutation } from 'react-apollo';
 
 import Form from '../../components/form/form';
 import { loginQuery } from '../../queries/user-queries';
@@ -49,7 +49,6 @@ export default function LoginPage(
       ...formValues,
       [e.target.name]: e.target.value,
     });
-    // console.log(formValues);
   };
 
   return (
