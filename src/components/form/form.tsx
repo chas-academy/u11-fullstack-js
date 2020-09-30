@@ -1,13 +1,14 @@
-import React from 'react'
-import styles from './form.module.css'
+import React from 'react';
+import styles from './form.module.css';
 
 interface FromProps {
-  title: string
-  fields: string[]
-  infoTop: string
-  infoBot: string
-  btnTxt: string
-  handleClick: Function
+  title: string;
+  fields: string[];
+  infoTop: string;
+  infoBot: string;
+  btnTxt: string;
+  handleClick: Function;
+  handleChange: Function;
 }
 
 const Form = (props: FromProps) => {
@@ -22,9 +23,14 @@ const Form = (props: FromProps) => {
               <label className="noClose" htmlFor={field}>
                 {field}
               </label>
-              <input className="noClose" type="text" name={field} />
+              <input
+                className="noClose"
+                type="text"
+                name={field}
+                onChange={(e: any) => props.handleChange(e)}
+              />
             </>
-          )
+          );
         })}
         <button className="btn noClose" onClick={(e) => props.handleClick(e)}>
           {props.btnTxt}
@@ -32,7 +38,7 @@ const Form = (props: FromProps) => {
         {props.infoBot !== '' ? <p>{props.infoBot}</p> : null}
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

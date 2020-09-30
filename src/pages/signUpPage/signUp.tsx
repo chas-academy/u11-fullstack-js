@@ -1,12 +1,21 @@
-import React from 'react'
-import styles from './signUp.module.css'
+import React, { useState } from 'react';
+import styles from './signUp.module.css';
 
-import Form from '../../components/form/form'
+import Form from '../../components/form/form';
 
 const SignUpPage = () => {
+  const [formValues, setFormValues] = useState({});
+
   const handleClick = (e: any) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
+
+  const handleChange = (e: any) => {
+    setFormValues({
+      ...formValues,
+      [e.target.id]: e.target.value,
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -19,9 +28,10 @@ const SignUpPage = () => {
         }
         btnTxt={'Sign Up'}
         handleClick={handleClick}
+        handleChange={handleChange}
       />
     </div>
-  )
-}
+  );
+};
 
-export default SignUpPage
+export default SignUpPage;
