@@ -5,7 +5,7 @@ import styles from './signUp.module.css';
 import Form from '../../components/form/form';
 import { signUpQuery } from '../../queries/user-queries';
 
-interface loginVariables {
+interface signUpVariables {
   username: string;
   email: string;
   password: string;
@@ -32,7 +32,7 @@ export default function SignUpPage(
   }
 ) {
   const [formValues, setFormValues] = useState(initialValues);
-  const [signUp, { error, data }] = useMutation<signUpData, loginVariables>(signUpQuery, {
+  const [signUp, { error, data }] = useMutation<signUpData, signUpVariables>(signUpQuery, {
     variables: {
       username: formValues.Username,
       email: formValues.Email,

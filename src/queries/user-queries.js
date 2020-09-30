@@ -17,4 +17,22 @@ const signUpQuery = gql`
   }
 `;
 
-export { loginQuery, signUpQuery };
+const getUsersQuery = gql`
+  query {
+    users {
+      username
+      email
+      id
+    }
+  }
+`;
+
+const removeUserQuery = gql`
+  mutation removeUser($id: String!) {
+    deleteUser(id: $id) {
+      username
+    }
+  }
+`;
+
+export { loginQuery, signUpQuery, getUsersQuery, removeUserQuery };

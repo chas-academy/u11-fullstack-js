@@ -1,11 +1,24 @@
-import React, { useState } from "react";
-import styles from "./dashboard.module.css";
+import React, { useState } from 'react';
+import { useQuery } from 'react-apollo';
+import styles from './dashboard.module.css';
 
-import User from "./user/user";
-import AddUser from "./addUser/addUser";
-import EditUser from "./editUser/editUser";
+import User from './user/user';
+import AddUser from './addUser/addUser';
+import EditUser from './editUser/editUser';
+import { getUsersQuery } from '../../queries/user-queries';
 
-const Dashboard = () => {
+interface UserData {
+  username: string;
+  email: string;
+  id: string;
+}
+
+interface UsersData {
+  users: UserData[];
+}
+
+export default function Dashboard() {
+  const { loading, data } = useQuery<UsersData>(getUsersQuery);
   const [isOpen, setIsOpen] = useState({
     addUser: false,
     editUser: false,
@@ -13,10 +26,10 @@ const Dashboard = () => {
 
   const showHoverBox = (e: any) => {
     e.preventDefault();
-    if (e.target.id === "addUser") {
+    if (e.target.id === 'addUser') {
       setIsOpen({ addUser: true, editUser: false });
     }
-    if (e.target.id === "editUser") {
+    if (e.target.id === 'editUser') {
       setIsOpen({ addUser: false, editUser: true });
     }
     return;
@@ -24,10 +37,10 @@ const Dashboard = () => {
 
   window.onclick = function (e: any) {
     if (
-      !e.target.matches(".form-container") &&
-      !e.target.matches("#addUser") &&
-      !e.target.matches("#editUser") &&
-      !e.target.matches(".noClose")
+      !e.target.matches('.form-container') &&
+      !e.target.matches('#addUser') &&
+      !e.target.matches('#editUser') &&
+      !e.target.matches('.noClose')
     ) {
       setIsOpen({ addUser: false, editUser: false });
     }
@@ -49,15 +62,15 @@ const Dashboard = () => {
             <th>Username</th>
             <th colSpan={3}>Email</th>
           </thead>
-          <User showHoverBox={showHoverBox} />
-          <User showHoverBox={showHoverBox} />
-          <User showHoverBox={showHoverBox} />
+          {loading ? (
+            <div>Loading users....</div>
+          ) : (
+            data?.users.map((user, i) => {
+              return <User user={user} showHoverBox={showHoverBox} />;
+            })
+          )}
         </table>
-        <button
-          className={`${styles.button} btn`}
-          id="addUser"
-          onClick={(e) => showHoverBox(e)}
-        >
+        <button className={`${styles.button} btn`} id="addUser" onClick={(e) => showHoverBox(e)}>
           +
         </button>
         {isOpen.addUser ? (
@@ -73,6 +86,4 @@ const Dashboard = () => {
       </div>
     </div>
   );
-};
-
-export default Dashboard;
+}
