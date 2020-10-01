@@ -5,7 +5,7 @@ import styles from './dashboard.module.css';
 import User from './user/user';
 import AddUser from './addUser/addUser';
 import EditUser from './editUser/editUser';
-import { getUsersQuery } from '../../queries/user-queries';
+import { getUsersQuery, getUserQuery } from '../../queries/user-queries';
 
 interface UserData {
   username: string;
@@ -17,7 +17,34 @@ interface UsersData {
   users: UserData[];
 }
 
+interface adminData {
+  user: {
+    username: string;
+  };
+}
+
+interface adminVariables {
+  accessToken: string;
+}
+
 export default function Dashboard() {
+  let token: any = '';
+  if (localStorage.getItem('accessToken')) {
+    token = localStorage.getItem('accessToken');
+  }
+
+  const { error, data: adminData } = useQuery<adminData, adminVariables>(getUserQuery, {
+    variables: {
+      accessToken: token,
+    },
+    onCompleted: () => {
+      console.log(data);
+    },
+    onError: () => {
+      console.log(error);
+    },
+  });
+
   const { loading, data } = useQuery<UsersData>(getUsersQuery);
   const [isOpen, setIsOpen] = useState({
     addUser: false,
@@ -50,7 +77,7 @@ export default function Dashboard() {
   return (
     <div className={`${styles.container} bg-primary shadowed`}>
       <div className={styles.left}>
-        <h3>Admin Babryz</h3>
+        <h3>Admin {adminData?.user.username}</h3>
         <hr />
         <div className={styles.category}>
           <h4>Users</h4>
