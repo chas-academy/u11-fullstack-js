@@ -25,7 +25,7 @@ const Header = () => {
     token = localStorage.getItem('accessToken');
   }
 
-  const { error, loading, data } = useQuery<userData, userVariables>(getUserQuery, {
+  const { error, data } = useQuery<userData, userVariables>(getUserQuery, {
     variables: {
       accessToken: token,
     },
