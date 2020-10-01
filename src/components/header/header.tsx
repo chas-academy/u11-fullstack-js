@@ -11,6 +11,7 @@ interface userData {
     username: string;
     email: string;
     admin: string;
+    cart: string;
   };
 }
 
@@ -18,13 +19,15 @@ interface userVariables {
   accessToken: string;
 }
 
-const Header = (initialState: any = localStorage.getItem('accessToken')) => {
-  const [token, setToken] = useState(initialState);
+const Header = () => {
+  let token: any = '';
+  if (localStorage.getItem('accessToken')) {
+    token = localStorage.getItem('accessToken');
+  }
 
   const { error, loading, data } = useQuery<userData, userVariables>(getUserQuery, {
     variables: {
-      accessToken:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNWY3NDc2OTZlZWNlODgyMjcwOTg1ODIzIn0sImlhdCI6MTYwMTU4Nzk5NSwiZXhwIjoxNjAyMTkyNzk1fQ.vozQlAYsTyDYTPLtejjaHZI7-YDSrbwJ8A2P4cAkNCU',
+      accessToken: token,
     },
     onCompleted: () => {
       console.log(data);
@@ -33,6 +36,11 @@ const Header = (initialState: any = localStorage.getItem('accessToken')) => {
       console.log(error);
     },
   });
+
+  const logOut = () => {
+    localStorage.removeItem('accessToken');
+    window.location.reload();
+  };
 
   return (
     <header className={`${styles.header} bg-primary shadowed`}>
@@ -49,8 +57,8 @@ const Header = (initialState: any = localStorage.getItem('accessToken')) => {
           <div>
             <b>{data?.user.email}</b>
           </div>
-          <button className={`btn`}>
-            <Link to="/login">Sign Out</Link>
+          <button className={`btn`} onClick={() => logOut()}>
+            Sign Out
           </button>
         </div>
       ) : (
