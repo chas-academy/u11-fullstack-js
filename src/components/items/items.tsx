@@ -18,11 +18,7 @@ interface productData {
 }
 
 export default function Items() {
-  const { loading, data } = useQuery<productsData>(getAllProductsQuery, {
-    onCompleted: () => {
-      console.log(data);
-    },
-  });
+  const { loading, data } = useQuery<productsData>(getAllProductsQuery);
 
   return (
     <div className={styles.container}>

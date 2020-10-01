@@ -27,6 +27,16 @@ const getUserByIdQuery = gql`
   }
 `;
 
+const getUserQuery = gql`
+  query getUser($accessToken: String!) {
+    user(accessToken: $accessToken) {
+      username
+      email
+      admin
+    }
+  }
+`;
+
 const getUsersQuery = gql`
   query {
     users {
@@ -61,4 +71,5 @@ export {
   removeUserQuery,
   updateUserQuery,
   getUserByIdQuery,
+  getUserQuery,
 };
