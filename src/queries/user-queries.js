@@ -17,6 +17,16 @@ const signUpQuery = gql`
   }
 `;
 
+const getUserByIdQuery = gql`
+  query getUserById($id: ID!) {
+    userById(id: $id) {
+      username
+      email
+      password
+    }
+  }
+`;
+
 const getUsersQuery = gql`
   query {
     users {
@@ -35,4 +45,20 @@ const removeUserQuery = gql`
   }
 `;
 
-export { loginQuery, signUpQuery, getUsersQuery, removeUserQuery };
+const updateUserQuery = gql`
+  mutation updateUser($id: String!, $username: String!, $password: String!) {
+    updateUser(id: $id, username: $username, password: $password) {
+      username
+      password
+    }
+  }
+`;
+
+export {
+  loginQuery,
+  signUpQuery,
+  getUsersQuery,
+  removeUserQuery,
+  updateUserQuery,
+  getUserByIdQuery,
+};

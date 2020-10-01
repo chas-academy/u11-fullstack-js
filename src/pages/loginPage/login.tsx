@@ -61,6 +61,8 @@ export default function LoginPage(
         btnTxt={'Log In'}
         handleClick={handleClick}
         handleChange={handleChange}
+        placeholders={false}
+        userData={null}
       />
     </div>
   );

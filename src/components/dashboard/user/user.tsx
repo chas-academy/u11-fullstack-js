@@ -40,7 +40,12 @@ export default function User(props: UserProps) {
       <td>{props.user.username}</td>
       <td>{props.user.email}</td>
       <td>
-        <button className="btn" onClick={(e) => props.showHoverBox(e)} id="editUser">
+        <button
+          className="btn"
+          onClick={(e) => props.showHoverBox(e)}
+          id="editUser"
+          name={props.user.id}
+        >
           EDIT
         </button>
       </td>

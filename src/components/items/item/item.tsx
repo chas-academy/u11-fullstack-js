@@ -1,14 +1,25 @@
-import React from "react";
-import styles from "./item.module.css";
-import ItemPic from "../../../images/Dominus_body_icon.png";
+import React from 'react';
+import styles from './item.module.css';
+import ItemPic from '../../../images/Dominus_body_icon.png';
 
-const Item = () => {
+interface itemProps {
+  item: {
+    id: string;
+    name: string;
+    price: number;
+    type: string;
+    img: string;
+  };
+}
+
+const Item = (props: itemProps) => {
+  const { id, name, price, type, img } = props.item;
   return (
     <div className={`${styles.container} bg-primary shadowed`}>
-      <h4>Item Name</h4>
+      <h4>{name}</h4>
       <img src={ItemPic} alt="" />
-      <p>Category: Body</p>
-      <p>Price: 2 EUR</p>
+      <p>Category: {type}</p>
+      <p>Price: {price} EUR</p>
       <button className={`btn`}>Add To Cart</button>
     </div>
   );

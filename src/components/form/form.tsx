@@ -9,6 +9,14 @@ interface FromProps {
   btnTxt: string;
   handleClick: Function;
   handleChange: Function;
+  placeholders: boolean;
+  userData: any;
+}
+
+interface UserData {
+  email: string;
+  username: string;
+  password: string;
 }
 
 const Form = (props: FromProps) => {
@@ -28,6 +36,7 @@ const Form = (props: FromProps) => {
                 type="text"
                 name={field}
                 onChange={(e: any) => props.handleChange(e)}
+                placeholder={props.placeholders && props.userData ? '' : ''}
               />
             </>
           );

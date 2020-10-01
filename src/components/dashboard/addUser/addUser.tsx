@@ -23,6 +23,8 @@ interface formValues {
   Password: string;
 }
 
+// NEED TO FIX SO FORMVALUES INTERFACE WORKS
+
 export default function AddUser(
   initialValues: any = {
     Username: '',
@@ -65,6 +67,8 @@ export default function AddUser(
       btnTxt={'Add'}
       handleClick={handleClick}
       handleChange={handleChange}
+      placeholders={false}
+      userData={null}
     />
   );
 }

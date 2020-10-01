@@ -69,6 +69,8 @@ export default function SignUpPage(
         btnTxt={'Sign Up'}
         handleClick={handleClick}
         handleChange={handleChange}
+        placeholders={false}
+        userData={null}
       />
     </div>
   );

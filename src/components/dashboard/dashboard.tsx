@@ -31,6 +31,7 @@ export default function Dashboard() {
     }
     if (e.target.id === 'editUser') {
       setIsOpen({ addUser: false, editUser: true });
+      sessionStorage.setItem('userID', e.target.name);
     }
     return;
   };
