@@ -22,4 +22,16 @@ const addToCartQuery = gql`
   }
 `;
 
-export { getAllProductsQuery, addToCartQuery };
+const getCartQuery = gql`
+  query getcart($accessToken: String!) {
+    user(accessToken: $accessToken) {
+      cart {
+        name
+        price
+        quantity
+      }
+    }
+  }
+`;
+
+export { getAllProductsQuery, addToCartQuery, getCartQuery };

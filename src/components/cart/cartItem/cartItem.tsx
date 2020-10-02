@@ -1,14 +1,23 @@
-import React from "react";
+import React from 'react';
 
-const CartItem = () => {
+interface itemProps {
+  item: {
+    name: string;
+    price: number;
+    quantity: number;
+  };
+}
+
+const CartItem = (props: itemProps) => {
+  const { name, price, quantity } = props.item;
   return (
     <tr>
       <td>
         <button className={`btn`}>X</button>
       </td>
-      <td>20</td>
-      <td>Alpha Boost</td>
-      <td>2000.00 EUR</td>
+      <td>{quantity}</td>
+      <td>{name}</td>
+      <td>{price} EUR</td>
     </tr>
   );
 };

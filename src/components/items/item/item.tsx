@@ -23,11 +23,14 @@ interface cartVariables {
 }
 
 interface cartData {
-  user: {
-    cart: {
-      name: string;
-    };
+  addtoCart: {
+    username: String;
+    cart: items[];
   };
+}
+
+interface items {
+  name: string;
 }
 
 const Item = (props: itemProps) => {

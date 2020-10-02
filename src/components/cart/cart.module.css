@@ -77,6 +77,10 @@
     font-size: 18px;
   }
 
+  .right table tr {
+    height: 30px;
+  }
+
   .right table td {
     font-size: 14px;
   }
