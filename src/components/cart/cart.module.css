@@ -37,6 +37,10 @@
   text-align: left;
 }
 
+.right table td {
+  padding: 10px 0;
+}
+
 .tableFooter h4 {
   font-size: 30px;
 }
@@ -77,12 +81,9 @@
     font-size: 18px;
   }
 
-  .right table tr {
-    height: 30px;
-  }
-
   .right table td {
     font-size: 14px;
+    margin-bottom: 10px;
   }
 
   .tableFooter h4 {

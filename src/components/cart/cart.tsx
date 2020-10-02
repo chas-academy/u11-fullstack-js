@@ -28,7 +28,8 @@ const Cart = () => {
   if (localStorage.getItem('accessToken')) {
     token = localStorage.getItem('accessToken');
   }
-  const { error, data } = useQuery<cartData, cartVariables>(getCartQuery, {
+  let sum: any = 0;
+  const { error, loading, data } = useQuery<cartData, cartVariables>(getCartQuery, {
     variables: {
       accessToken: token,
     },
@@ -39,6 +40,19 @@ const Cart = () => {
       console.log(error);
     },
   });
+
+  const calcSum = () => {
+    let priceArray = [];
+    for (let i = 0; i < data!.user.cart.length; i++) {
+      priceArray.push(data?.user.cart[i].price);
+    }
+    console.log(priceArray);
+    sum = priceArray.reduce((total: any, currentValue: any) => {
+      return (total += currentValue);
+    });
+    console.log(sum);
+    return sum;
+  };
 
   return (
     <div className={`${styles.container} bg-primary shadowed`}>
@@ -59,7 +73,7 @@ const Cart = () => {
           })}
           <tr className={styles.tableFooter}>
             <td colSpan={3}>
-              <h4>Total: 6000.00 EUR</h4>
+              <h4>Total: {loading ? '0' : calcSum()} EUR</h4>
             </td>
             <td>
               <button className={`btn`}>ORDER</button>
