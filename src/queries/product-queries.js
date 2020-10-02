@@ -12,4 +12,14 @@ const getAllProductsQuery = gql`
   }
 `;
 
-export { getAllProductsQuery };
+const addToCartQuery = gql`
+  mutation addToCart($accessToken: String!, $itemId: ID!, $name: String!, $price: Float!) {
+    addToCart(accessToken: $accessToken, itemId: $itemId, name: $name, price: $price) {
+      cart {
+        name
+      }
+    }
+  }
+`;
+
+export { getAllProductsQuery, addToCartQuery };
