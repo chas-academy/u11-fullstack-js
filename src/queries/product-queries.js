@@ -45,4 +45,16 @@ const removeCartItemQuery = gql`
   }
 `;
 
-export { getAllProductsQuery, addToCartQuery, getCartQuery, removeCartItemQuery };
+const orderQuery = gql`
+  mutation order($accessToken: String!) {
+    order(accessToken: $accessToken) {
+      id
+      items {
+        name
+      }
+      date
+    }
+  }
+`;
+
+export { getAllProductsQuery, addToCartQuery, getCartQuery, removeCartItemQuery, orderQuery };

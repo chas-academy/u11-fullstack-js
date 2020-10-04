@@ -1,10 +1,10 @@
 import React from 'react';
-import { useQuery } from 'react-apollo';
+import { useMutation, useQuery } from 'react-apollo';
 
 import styles from './cart.module.css';
 import cartLogo from '../../images/cart.jpg';
 import CartItem from './cartItem/cartItem';
-import { getCartQuery } from '../../queries/product-queries';
+import { getCartQuery, orderQuery } from '../../queries/product-queries';
 
 interface cartVariables {
   accessToken: string;
@@ -21,6 +21,13 @@ interface cartItem {
   name: string;
   price: number;
   quantity: number;
+}
+
+interface orderData {
+  id: string;
+  date: string;
+  items: cartItem[];
+  userId: string;
 }
 
 const Cart = () => {
@@ -40,18 +47,30 @@ const Cart = () => {
       console.log(error);
     },
   });
+  const [order, { error: orderError }] = useMutation<orderData, cartVariables>(orderQuery, {
+    variables: {
+      accessToken: token,
+    },
+    onCompleted: () => {
+      window.location.replace('/orderConfirmation');
+    },
+    onError: () => {
+      console.log(orderError);
+    },
+  });
 
   const calcSum = () => {
     if (data) {
+      if (data.user.cart.length < 1) {
+        return 0;
+      }
       let priceArray = [];
       for (let i = 0; i < data!.user.cart.length; i++) {
         priceArray.push(data?.user.cart[i].price);
       }
-      console.log(priceArray);
       sum = priceArray.reduce((total: any, currentValue: any) => {
         return (total += currentValue);
       });
-      console.log(sum);
       return sum;
     }
   };
@@ -70,6 +89,9 @@ const Cart = () => {
             <th>Item</th>
             <th>Price</th>
           </thead>
+          {!data?.user.cart[0] ? (
+            <h3>Seems like your cart is empty at the moment. Get shopping now!</h3>
+          ) : null}
           {data?.user.cart.map((item) => {
             return <CartItem item={item} />;
           })}
@@ -78,7 +100,9 @@ const Cart = () => {
               <h4>Total: {loading ? '0' : calcSum()} EUR</h4>
             </td>
             <td>
-              <button className={`btn`}>ORDER</button>
+              <button className={`btn`} onClick={() => order()}>
+                ORDER
+              </button>
             </td>
           </tr>
         </table>
