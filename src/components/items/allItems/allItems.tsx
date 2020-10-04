@@ -16,6 +16,7 @@ interface productData {
   price: number;
   img: string;
 }
+
 const AllItems = () => {
   const { loading, data } = useQuery<productsData>(getAllProductsQuery);
 
