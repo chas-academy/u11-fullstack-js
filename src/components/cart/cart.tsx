@@ -82,30 +82,33 @@ const Cart = () => {
         <h3>Your shopping cart</h3>
       </div>
       <div className={styles.right}>
-        <table>
-          <thead>
-            <th></th>
-            <th>Quantity</th>
-            <th>Item</th>
-            <th>Price</th>
-          </thead>
-          {!data?.user.cart[0] ? (
-            <h3>Seems like your cart is empty at the moment. Get shopping now!</h3>
-          ) : null}
-          {data?.user.cart.map((item) => {
-            return <CartItem item={item} />;
-          })}
-          <tr className={styles.tableFooter}>
-            <td colSpan={3}>
-              <h4>Total: {loading ? '0' : calcSum()} EUR</h4>
-            </td>
-            <td>
-              <button className={`btn`} onClick={() => order()}>
-                ORDER
-              </button>
-            </td>
-          </tr>
-        </table>
+        {!data?.user.cart[0] ? (
+          <h3 className={styles.empty}>
+            Seems like your cart is empty at the moment. Get shopping now!
+          </h3>
+        ) : (
+          <table>
+            <thead>
+              <th></th>
+              <th>Quantity</th>
+              <th>Item</th>
+              <th>Price</th>
+            </thead>
+            {data?.user.cart.map((item) => {
+              return <CartItem item={item} />;
+            })}
+            <tr className={styles.tableFooter}>
+              <td colSpan={3}>
+                <h4>Total: {loading ? '0' : calcSum()} EUR</h4>
+              </td>
+              <td>
+                <button className={`btn`} onClick={() => order()}>
+                  ORDER
+                </button>
+              </td>
+            </tr>
+          </table>
+        )}
       </div>
     </div>
   );

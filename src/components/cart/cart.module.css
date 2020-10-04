@@ -25,6 +25,12 @@
   font-size: 36px;
 }
 
+.right .empty {
+  width: 60%;
+  margin: 50px auto;
+  font-size: 30px;
+}
+
 .right table {
   width: 100%;
   height: 95%;
