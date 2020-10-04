@@ -1,11 +1,20 @@
-import React from "react";
+import React from 'react';
 
-const OrderItem = () => {
+interface itemProps {
+  item: {
+    name: string;
+    price: number;
+    quantity: number;
+  };
+}
+
+const OrderItem = (props: itemProps) => {
+  const { name, price, quantity } = props.item;
   return (
     <tr>
-      <td>Alpha Boost</td>
-      <td>20 </td>
-      <td>2000.00 EUR</td>
+      <td>{name}</td>
+      <td>{quantity} </td>
+      <td>{price} EUR</td>
     </tr>
   );
 };

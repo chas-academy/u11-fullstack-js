@@ -57,4 +57,25 @@ const orderQuery = gql`
   }
 `;
 
-export { getAllProductsQuery, addToCartQuery, getCartQuery, removeCartItemQuery, orderQuery };
+const getOrderQuery = gql`
+  query($accessToken: String!) {
+    order(accessToken: $accessToken) {
+      id
+      items {
+        name
+        quantity
+        price
+      }
+      date
+    }
+  }
+`;
+
+export {
+  getAllProductsQuery,
+  addToCartQuery,
+  getCartQuery,
+  removeCartItemQuery,
+  orderQuery,
+  getOrderQuery,
+};
