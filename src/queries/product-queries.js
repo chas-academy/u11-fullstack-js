@@ -12,6 +12,18 @@ const getAllProductsQuery = gql`
   }
 `;
 
+const searchProductsQuery = gql`
+  query($searchTerm: String!) {
+    searchProducts(searchTerm: $searchTerm) {
+      id
+      name
+      price
+      type
+      img
+    }
+  }
+`;
+
 const addToCartQuery = gql`
   mutation addToCart($accessToken: String!, $itemId: ID!, $name: String!, $price: Float!) {
     addToCart(accessToken: $accessToken, itemId: $itemId, name: $name, price: $price) {
@@ -78,4 +90,5 @@ export {
   removeCartItemQuery,
   orderQuery,
   getOrderQuery,
+  searchProductsQuery,
 };

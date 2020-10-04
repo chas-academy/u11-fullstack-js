@@ -1,9 +1,8 @@
 import React from 'react';
 import { useQuery } from 'react-apollo';
-import styles from './items.module.css';
 
-import Item from './item/item';
-import { getAllProductsQuery } from '../../queries/product-queries';
+import AllItems from './allItems/allItems';
+import SearchItems from './searchItems/searchItems';
 
 interface productsData {
   products: productData[];
@@ -17,21 +16,14 @@ interface productData {
   img: string;
 }
 
-export default function Items() {
-  const { loading, data } = useQuery<productsData>(getAllProductsQuery);
+interface searchVariables {
+  searchTerm: string;
+}
 
-  return (
-    <div className={styles.container}>
-      <h3 className={styles.heading}>Showing top items</h3>
-      <div className={styles.itemContainer}>
-        {loading ? (
-          <div>Loading products...</div>
-        ) : (
-          data?.products.map((item) => {
-            return <Item item={item} />;
-          })
-        )}
-      </div>
-    </div>
-  );
+export default function Items(props: searchVariables) {
+  if (props.searchTerm !== '') {
+    return <SearchItems searchTerm={props.searchTerm} />;
+  } else {
+    return <AllItems />;
+  }
 }

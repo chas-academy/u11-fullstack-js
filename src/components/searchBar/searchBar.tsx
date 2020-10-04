@@ -1,13 +1,17 @@
-import React from "react";
-import styles from "./searchBar.module.css";
-import SearchIcon from "../../images/magnifying-glass.png";
+import React from 'react';
+import styles from './searchBar.module.css';
+import SearchIcon from '../../images/magnifying-glass.png';
 
-const SearchBar = () => {
+interface searchProps {
+  search: Function;
+}
+
+const SearchBar = (props: searchProps) => {
   return (
     <>
-      <form action="" className={styles.inputForm}>
+      <form action="" className={styles.inputForm} onSubmit={(e) => e.preventDefault()}>
         <img src={SearchIcon} alt="" />
-        <input type="text" placeholder="Search by item name" />
+        <input type="text" placeholder="Search by item name" onKeyDown={(e) => props.search(e)} />
       </form>
     </>
   );
