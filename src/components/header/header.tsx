@@ -39,7 +39,7 @@ const Header = () => {
 
   const logOut = () => {
     localStorage.removeItem('accessToken');
-    window.location.reload();
+    window.location.replace('/');
   };
 
   return (
