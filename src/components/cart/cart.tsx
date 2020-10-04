@@ -5,7 +5,6 @@ import styles from './cart.module.css';
 import cartLogo from '../../images/cart.jpg';
 import CartItem from './cartItem/cartItem';
 import { getCartQuery } from '../../queries/product-queries';
-import { tokenToString } from 'typescript';
 
 interface cartVariables {
   accessToken: string;
@@ -18,6 +17,7 @@ interface cartData {
 }
 
 interface cartItem {
+  itemId: string;
   name: string;
   price: number;
   quantity: number;
@@ -42,16 +42,18 @@ const Cart = () => {
   });
 
   const calcSum = () => {
-    let priceArray = [];
-    for (let i = 0; i < data!.user.cart.length; i++) {
-      priceArray.push(data?.user.cart[i].price);
+    if (data) {
+      let priceArray = [];
+      for (let i = 0; i < data!.user.cart.length; i++) {
+        priceArray.push(data?.user.cart[i].price);
+      }
+      console.log(priceArray);
+      sum = priceArray.reduce((total: any, currentValue: any) => {
+        return (total += currentValue);
+      });
+      console.log(sum);
+      return sum;
     }
-    console.log(priceArray);
-    sum = priceArray.reduce((total: any, currentValue: any) => {
-      return (total += currentValue);
-    });
-    console.log(sum);
-    return sum;
   };
 
   return (

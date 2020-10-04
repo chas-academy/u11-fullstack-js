@@ -26,6 +26,7 @@ const getCartQuery = gql`
   query getcart($accessToken: String!) {
     user(accessToken: $accessToken) {
       cart {
+        itemId
         name
         price
         quantity
@@ -34,4 +35,14 @@ const getCartQuery = gql`
   }
 `;
 
-export { getAllProductsQuery, addToCartQuery, getCartQuery };
+const removeCartItemQuery = gql`
+  mutation removeFromCart($accessToken: String!, $itemId: ID!) {
+    removeCartItem(accessToken: $accessToken, itemId: $itemId) {
+      cart {
+        name
+      }
+    }
+  }
+`;
+
+export { getAllProductsQuery, addToCartQuery, getCartQuery, removeCartItemQuery };
