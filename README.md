@@ -9,3 +9,4 @@
 - Fix so buttons are always at the bottom of item boxes so they sync up.
 - Add error handling on all forms. (Needs back-end fix to.)
 - Fix so user is forced to be logged in to shop. (If time, no requirment)
+- Fix so orderConfirmation page fetches customers latest order.
