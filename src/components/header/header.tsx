@@ -45,7 +45,7 @@ const Header = () => {
       </div>
       {localStorage.getItem('accessToken') ? (
         <div className={styles.buttons}>
-          <Link to="/cart">
+          <Link to="/cart" onClick={() => window.location.replace('/cart')}>
             <img src={Cart} alt="" />
           </Link>
           <div>

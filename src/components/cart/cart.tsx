@@ -36,11 +36,10 @@ const Cart = () => {
     token = localStorage.getItem('accessToken');
   }
   let sum: any = 0;
-  const { error, loading, data } = useQuery<cartData, cartVariables>(getCartQuery, {
+  const { loading, data } = useQuery<cartData, cartVariables>(getCartQuery, {
     variables: {
       accessToken: token,
     },
-    onCompleted: () => {},
   });
   const [order] = useMutation<orderData, cartVariables>(orderQuery, {
     variables: {
