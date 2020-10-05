@@ -40,8 +40,9 @@ const Cart = () => {
     variables: {
       accessToken: token,
     },
+    onCompleted: () => {},
   });
-  const [order, { error: orderError }] = useMutation<orderData, cartVariables>(orderQuery, {
+  const [order] = useMutation<orderData, cartVariables>(orderQuery, {
     variables: {
       accessToken: token,
     },
@@ -85,19 +86,23 @@ const Cart = () => {
               <th>Item</th>
               <th>Price</th>
             </thead>
-            {data?.user.cart.map((item) => {
-              return <CartItem item={item} />;
-            })}
-            <tr className={styles.tableFooter}>
-              <td colSpan={3}>
-                <h4>Total: {loading ? '0' : calcSum()} EUR</h4>
-              </td>
-              <td>
-                <button className={`btn`} onClick={() => order()}>
-                  ORDER
-                </button>
-              </td>
-            </tr>
+            <tbody>
+              {data?.user.cart.map((item, i) => {
+                return <CartItem item={item} i={i} />;
+              })}
+            </tbody>
+            <tfoot>
+              <tr className={styles.tableFooter}>
+                <td colSpan={3}>
+                  <h4>Total: {loading ? '0' : calcSum()} EUR</h4>
+                </td>
+                <td>
+                  <button className={`btn`} onClick={() => order()}>
+                    ORDER
+                  </button>
+                </td>
+              </tr>
+            </tfoot>
           </table>
         )}
       </div>

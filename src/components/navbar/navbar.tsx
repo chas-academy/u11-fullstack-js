@@ -28,15 +28,9 @@ const Navbar = (props: navbarProps) => {
     token = localStorage.getItem('accessToken');
   }
 
-  const { error, data } = useQuery<userData, userVariables>(getUserQuery, {
+  const { data } = useQuery<userData, userVariables>(getUserQuery, {
     variables: {
       accessToken: token,
-    },
-    onCompleted: () => {
-      console.log(data);
-    },
-    onError: () => {
-      console.log(error);
     },
   });
   return (

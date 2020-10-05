@@ -11,6 +11,7 @@ interface itemProps {
     price: number;
     quantity: number;
   };
+  i: number;
 }
 
 interface cartData {
@@ -48,7 +49,7 @@ const CartItem = (props: itemProps) => {
   );
   const { name, price, quantity } = props.item;
   return (
-    <tr>
+    <tr key={props.i}>
       <td>
         <button className={`btn`} onClick={() => removeCartItem()}>
           X

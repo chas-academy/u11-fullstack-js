@@ -42,15 +42,12 @@ const Item = (props: itemProps) => {
   const { id, name, price, type, img } = props.item;
   const [added, setAdded] = useState(false);
 
-  const [addToCart, { error, data }] = useMutation<cartData, cartVariables>(addToCartQuery, {
+  const [addToCart, { error }] = useMutation<cartData, cartVariables>(addToCartQuery, {
     variables: {
       accessToken: token,
       itemId: id,
       name: name,
       price: price,
-    },
-    onCompleted: () => {
-      console.log('Item added to cart!');
     },
     onError: () => {
       console.log(error);
