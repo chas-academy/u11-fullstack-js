@@ -40,12 +40,6 @@ const Cart = () => {
     variables: {
       accessToken: token,
     },
-    onCompleted: () => {
-      console.log(data);
-    },
-    onError: () => {
-      console.log(error);
-    },
   });
   const [order, { error: orderError }] = useMutation<orderData, cartVariables>(orderQuery, {
     variables: {
@@ -53,9 +47,6 @@ const Cart = () => {
     },
     onCompleted: () => {
       window.location.replace('/orderConfirmation');
-    },
-    onError: () => {
-      console.log(orderError);
     },
   });
 

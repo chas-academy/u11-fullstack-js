@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation } from 'react-apollo';
 
 import styles from './item.module.css';
@@ -40,6 +40,7 @@ const Item = (props: itemProps) => {
   }
 
   const { id, name, price, type, img } = props.item;
+  const [added, setAdded] = useState(false);
 
   const [addToCart, { error, data }] = useMutation<cartData, cartVariables>(addToCartQuery, {
     variables: {
@@ -49,12 +50,17 @@ const Item = (props: itemProps) => {
       price: price,
     },
     onCompleted: () => {
-      console.log(data);
+      console.log('Item added to cart!');
     },
     onError: () => {
       console.log(error);
     },
   });
+
+  const handleClick = () => {
+    addToCart();
+    setAdded(true);
+  };
 
   return (
     <div className={`${styles.container} bg-primary shadowed`}>
@@ -62,9 +68,13 @@ const Item = (props: itemProps) => {
       <img src={require(`../../../images/products/${img}`)} alt="" />
       <p>Category: {type}</p>
       <p>Price: {price} EUR</p>
-      <button className={`btn`} onClick={() => addToCart()}>
-        Add To Cart
-      </button>
+      {!added ? (
+        <button className={`btn`} onClick={() => handleClick()}>
+          Add To Cart
+        </button>
+      ) : (
+        <button className={`btn`}>In Cart</button>
+      )}
     </div>
   );
 };

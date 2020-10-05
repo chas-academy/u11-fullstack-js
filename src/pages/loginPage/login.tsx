@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './login.module.css';
 import { useMutation } from 'react-apollo';
 
@@ -21,27 +21,41 @@ interface formValues {
   Password: string;
 }
 
-export default function LoginPage(
+const LoginPage = (
   initialValues: formValues = {
     Email: '',
     Password: '',
   }
-) {
+) => {
   const [formValues, setFormValues] = useState(initialValues);
-  const [login, { error, data }] = useMutation<loginData, loginVariables>(loginQuery, {
-    variables: { email: formValues.Email, password: formValues.Password },
+  const [login, { loading, error, data }] = useMutation<loginData, loginVariables>(loginQuery, {
+    variables: {
+      email: formValues.Email,
+      password: formValues.Password,
+    },
+    onCompleted: () => {
+      if (data) {
+        setToken(data!.login.accessToken);
+      }
+    },
   });
 
-  const handleClick = (e: any) => {
+  const handleClick = async (e: any) => {
     e.preventDefault();
     login();
-    if (data) {
-      console.log(data);
-      localStorage.setItem('accessToken', data!.login.accessToken);
-      window.location.replace('/');
-    } else if (error) {
+
+    if (error) {
       console.log(error);
+      return;
     }
+    if (data) {
+      setToken(data!.login.accessToken);
+    }
+  };
+
+  const setToken = (token: string) => {
+    localStorage.setItem('accessToken', token);
+    window.location.replace('/');
   };
 
   const handleChange = (e: any) => {
@@ -66,4 +80,6 @@ export default function LoginPage(
       />
     </div>
   );
-}
+};
+
+export default LoginPage;
