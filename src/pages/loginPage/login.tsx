@@ -42,14 +42,14 @@ const LoginPage = (
 
   const handleClick = async (e: any) => {
     e.preventDefault();
-    login();
+    const res = await login();
 
     if (error) {
       console.log(error);
       return;
     }
-    if (data) {
-      setToken(data!.login.accessToken);
+    if (res.data) {
+      setToken(res.data!.login.accessToken);
     }
   };
 
