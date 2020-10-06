@@ -17,6 +17,12 @@
   align-items: center;
 }
 
+.buttons a {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 .buttons img {
   max-width: 48px;
   margin-right: 20px;
