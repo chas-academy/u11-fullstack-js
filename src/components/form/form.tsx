@@ -38,11 +38,12 @@ const Form = (props: FromProps) => {
                 name={field}
                 onChange={(e: any) => props.handleChange(e)}
                 placeholder={props.placeholders && props.userData ? '' : ''}
+                required
               />
             </>
           );
         })}
-        <button className="btn noClose" onClick={(e) => props.handleClick(e)}>
+        <button type="submit" className="btn noClose" onClick={(e) => props.handleClick(e)}>
           {props.btnTxt}
         </button>
         {props.infoBot !== '' ? <p>{props.infoBot}</p> : null}

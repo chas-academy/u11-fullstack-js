@@ -7,6 +7,6 @@
 - Fix so buttons are always at the bottom of item boxes so they sync up. (FIXED)
 - Add function for checking if items is in cart and then change btn-text to "In Cart". (Kinda works with state)
 - Fix so form-buttons don't need to be clicked twice to do what they're supposed to. (FIXED FREAKING FINALLY)
-- Fix function for editing user through dashboard.
+- Fix function for editing user through dashboard. (FIXED)
 - Add error handling on all forms and queries. (Needs back-end fix to.)
-- Fix so user is forced to be logged in to shop. (If time, no requirment)
+- Fix so user is forced to be logged in to shop. (If time, no requirment)(Maybe with cart in localstorage and send logged in state to back-end)

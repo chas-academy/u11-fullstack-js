@@ -50,6 +50,11 @@
   margin: 40px;
 }
 
+.container input:disabled {
+  background: rgb(201, 164, 201);
+  color: rgb(112, 105, 105);
+}
+
 @media screen and (max-width: 625px) {
   .container {
     width: 100%;

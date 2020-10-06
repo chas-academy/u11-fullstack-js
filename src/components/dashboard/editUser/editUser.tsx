@@ -109,12 +109,14 @@ export default function EditUser(
           value={user?.email}
           readOnly
           disabled
+          required
         />
         <label className="noClose" htmlFor="Username">
           Username
         </label>
         <input
           className="noClose"
+          required
           type="text"
           name="Username"
           onChange={(e) => handleChange(e)}
@@ -125,6 +127,7 @@ export default function EditUser(
         </label>
         <input
           className="noClose"
+          required
           type="password"
           name="Password"
           onChange={(e) => handleChange(e)}

@@ -35,15 +35,19 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 700px) {
   .logo {
     margin-left: 15px;
-    font-size: 14px;
+    font-size: 12px;
     width: 30%;
   }
 
   .buttons img {
-    max-width: 35px;
+    max-width: 33px;
     margin-right: 5px;
+  }
+
+  .buttons div b {
+    font-size: 12px;
   }
 }
