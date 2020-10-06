@@ -4,6 +4,10 @@ import { useMutation } from 'react-apollo';
 import Form from '../../form/form';
 import { signUpQuery } from '../../../queries/user-queries';
 
+interface addProps {
+  closeModal: Function;
+}
+
 interface signUpVariables {
   username: string;
   email: string;
@@ -26,6 +30,7 @@ interface formValues {
 // NEED TO FIX SO FORMVALUES INTERFACE WORKS
 
 export default function AddUser(
+  props: addProps,
   initialValues: any = {
     Username: '',
     Email: '',
@@ -71,6 +76,8 @@ export default function AddUser(
       handleChange={handleChange}
       placeholders={false}
       userData={null}
+      closeBtn={true}
+      closeModal={props.closeModal}
     />
   );
 }

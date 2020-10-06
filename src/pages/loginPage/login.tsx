@@ -77,6 +77,8 @@ const LoginPage = (
         handleChange={handleChange}
         placeholders={false}
         userData={null}
+        closeBtn={false}
+        closeModal={() => {}}
       />
     </div>
   );

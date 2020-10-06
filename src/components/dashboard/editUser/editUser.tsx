@@ -5,6 +5,10 @@ import Form from '../../form/form';
 import styles from '../../form/form.module.css';
 import { updateUserQuery, getUserByIdQuery } from '../../../queries/user-queries';
 
+interface editProps {
+  closeModal: Function;
+}
+
 interface userData {
   userById: {
     username: string;
@@ -31,6 +35,7 @@ interface updateVariables {
 }
 
 export default function EditUser(
+  props: editProps,
   initialValues: any = {
     Username: '',
     Email: '',
@@ -59,7 +64,7 @@ export default function EditUser(
       console.log(sessionStorage.getItem('userID'));
     },
   });
-  const [updateUser, { error, data }] = useMutation<updatedData, updateVariables>(updateUserQuery, {
+  const [updateUser] = useMutation<updatedData, updateVariables>(updateUserQuery, {
     variables: {
       id: id,
       username: formValues.Username,
@@ -97,6 +102,9 @@ export default function EditUser(
   return (
     <div className={`${styles.container} bg-primary shadowed form-container`}>
       <h2>Edit User</h2>
+      <div className={styles.close} onClick={() => props.closeModal()}>
+        X
+      </div>
       <form action="" onSubmit={(e) => handleSubmit(e)}>
         <label className="noClose" htmlFor="Email">
           Email

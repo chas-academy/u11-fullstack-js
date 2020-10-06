@@ -12,6 +12,8 @@ interface FromProps {
   handleChange: Function;
   placeholders: boolean;
   userData: any;
+  closeBtn: boolean;
+  closeModal: Function;
 }
 
 interface UserData {
@@ -24,6 +26,11 @@ const Form = (props: FromProps) => {
   return (
     <div className={`${styles.container} bg-primary shadowed form-container`}>
       <h2>{props.title}</h2>
+      {props.closeBtn ? (
+        <div className={styles.close} onClick={() => props.closeModal()}>
+          X
+        </div>
+      ) : null}
       {props.infoTop !== '' ? <p>{props.infoTop}</p> : null}
       <form action="" onSubmit={(e) => props.handleSubmit(e)}>
         {props.fields.map((field, i) => {

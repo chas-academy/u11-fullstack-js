@@ -73,6 +73,8 @@ export default function SignUpPage(
         handleChange={handleChange}
         placeholders={false}
         userData={null}
+        closeBtn={false}
+        closeModal={() => {}}
       />
     </div>
   );

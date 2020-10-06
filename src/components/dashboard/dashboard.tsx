@@ -63,16 +63,23 @@ export default function Dashboard() {
     return;
   };
 
-  window.onclick = function (e: any) {
-    if (
-      !e.target.matches('.form-container') &&
-      !e.target.matches('#addUser') &&
-      !e.target.matches('#editUser') &&
-      !e.target.matches('.noClose')
-    ) {
-      setIsOpen({ addUser: false, editUser: false });
-    }
+  const closeModal = () => {
+    setIsOpen({
+      addUser: false,
+      editUser: false,
+    });
   };
+
+  // window.onclick = function (e: any) {
+  //   if (
+  //     !e.target.matches('.form-container') &&
+  //     !e.target.matches('#addUser') &&
+  //     !e.target.matches('#editUser') &&
+  //     !e.target.matches('.noClose')
+  //   ) {
+  //     setIsOpen({ addUser: false, editUser: false });
+  //   }
+  // };
 
   return (
     <div className={`${styles.container} bg-primary shadowed`}>
@@ -103,12 +110,12 @@ export default function Dashboard() {
         </button>
         {isOpen.addUser ? (
           <div className={styles.form}>
-            <AddUser />
+            <AddUser closeModal={closeModal} />
           </div>
         ) : null}
         {isOpen.editUser ? (
           <div className={styles.form}>
-            <EditUser />
+            <EditUser closeModal={closeModal} />
           </div>
         ) : null}
       </div>
