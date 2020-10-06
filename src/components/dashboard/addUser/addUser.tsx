@@ -41,13 +41,15 @@ export default function AddUser(
     },
   });
 
-  const handleClick = (e: any) => {
+  const handleClick = async (e: any) => {
     e.preventDefault();
-    signUp();
-    if (data) {
+    const res = await signUp();
+
+    if (res.errors) {
+      console.log(res.errors);
+      return;
+    } else if (res.data) {
       window.location.reload();
-    } else if (error) {
-      console.log(error);
     }
   };
 
