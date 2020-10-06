@@ -40,7 +40,7 @@ const LoginPage = (
     },
   });
 
-  const handleClick = async (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const res = await login();
 
@@ -73,7 +73,7 @@ const LoginPage = (
         infoTop={''}
         infoBot={''}
         btnTxt={'Log In'}
-        handleClick={handleClick}
+        handleSubmit={handleSubmit}
         handleChange={handleChange}
         placeholders={false}
         userData={null}

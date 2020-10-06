@@ -41,7 +41,7 @@ export default function AddUser(
     },
   });
 
-  const handleClick = async (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const res = await signUp();
 
@@ -67,7 +67,7 @@ export default function AddUser(
       infoTop={''}
       infoBot={''}
       btnTxt={'Add'}
-      handleClick={handleClick}
+      handleSubmit={handleSubmit}
       handleChange={handleChange}
       placeholders={false}
       userData={null}

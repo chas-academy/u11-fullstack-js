@@ -40,7 +40,7 @@ export default function SignUpPage(
     },
   });
 
-  const handleClick = async (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const res = await signUp();
     if (res.errors) {
@@ -69,7 +69,7 @@ export default function SignUpPage(
           'By clicking the Sign Up button, you agree to our Terms & Conditions and Privacy Policy'
         }
         btnTxt={'Sign Up'}
-        handleClick={handleClick}
+        handleSubmit={handleSubmit}
         handleChange={handleChange}
         placeholders={false}
         userData={null}

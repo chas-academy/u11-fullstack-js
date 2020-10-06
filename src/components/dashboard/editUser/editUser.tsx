@@ -67,7 +67,7 @@ export default function EditUser(
     },
   });
 
-  const handleClick = async (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const res = await updateUser();
 
@@ -97,7 +97,7 @@ export default function EditUser(
   return (
     <div className={`${styles.container} bg-primary shadowed form-container`}>
       <h2>Edit User</h2>
-      <form>
+      <form action="" onSubmit={(e) => handleSubmit(e)}>
         <label className="noClose" htmlFor="Email">
           Email
         </label>
@@ -109,7 +109,6 @@ export default function EditUser(
           value={user?.email}
           readOnly
           disabled
-          required
         />
         <label className="noClose" htmlFor="Username">
           Username
@@ -133,9 +132,7 @@ export default function EditUser(
           onChange={(e) => handleChange(e)}
           defaultValue={formValues!.Password}
         />
-        <button className="btn noClose" onClick={(e) => handleClick(e)}>
-          Edit
-        </button>
+        <button className="btn noClose">Edit</button>
       </form>
     </div>
   );
