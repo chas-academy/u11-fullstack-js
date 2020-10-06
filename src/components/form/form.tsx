@@ -34,7 +34,7 @@ const Form = (props: FromProps) => {
               </label>
               <input
                 className="noClose"
-                type="text"
+                type={field === 'Password' ? 'password' : 'text'}
                 name={field}
                 onChange={(e: any) => props.handleChange(e)}
                 placeholder={props.placeholders && props.userData ? '' : ''}
