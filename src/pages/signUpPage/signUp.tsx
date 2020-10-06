@@ -40,13 +40,15 @@ export default function SignUpPage(
     },
   });
 
-  const handleClick = (e: any) => {
+  const handleClick = async (e: any) => {
     e.preventDefault();
-    signUp();
-    if (data) {
+    const res = await signUp();
+    if (res.errors) {
+      console.log(res.errors);
+      return;
+    }
+    if (res.data) {
       window.location.replace('/login');
-    } else if (error) {
-      console.log(error);
     }
   };
 
