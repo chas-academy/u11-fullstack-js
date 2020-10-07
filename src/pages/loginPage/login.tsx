@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './login.module.css';
 import { useMutation } from 'react-apollo';
 
@@ -28,7 +28,7 @@ const LoginPage = (
   }
 ) => {
   const [formValues, setFormValues] = useState(initialValues);
-  const [login, { loading, error, data }] = useMutation<loginData, loginVariables>(loginQuery, {
+  const [login, { error, data }] = useMutation<loginData, loginVariables>(loginQuery, {
     variables: {
       email: formValues.Email,
       password: formValues.Password,

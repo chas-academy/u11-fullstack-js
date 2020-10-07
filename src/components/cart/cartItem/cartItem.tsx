@@ -1,6 +1,5 @@
 import React from 'react';
 import { useMutation } from 'react-apollo';
-import { tokenToString } from 'typescript';
 
 import { removeCartItemQuery } from '../../../queries/product-queries';
 
@@ -32,21 +31,15 @@ const CartItem = (props: itemProps) => {
   if (localStorage.getItem('accessToken')) {
     token = localStorage.getItem('accessToken');
   }
-  const [removeCartItem, { error, data }] = useMutation<cartData, cartVariables>(
-    removeCartItemQuery,
-    {
-      variables: {
-        accessToken: token,
-        itemId: props.item.itemId,
-      },
-      onCompleted: () => {
-        window.location.reload();
-      },
-      onError: () => {
-        console.log(error);
-      },
-    }
-  );
+  const [removeCartItem] = useMutation<cartData, cartVariables>(removeCartItemQuery, {
+    variables: {
+      accessToken: token,
+      itemId: props.item.itemId,
+    },
+    onCompleted: () => {
+      window.location.reload();
+    },
+  });
   const { name, price, quantity } = props.item;
   return (
     <tr key={props.i}>

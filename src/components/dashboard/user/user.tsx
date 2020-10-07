@@ -26,7 +26,7 @@ interface removeVariables {
 }
 
 export default function User(props: UserProps) {
-  const [remove, { error, data }] = useMutation<removedData, removeVariables>(removeUserQuery, {
+  const [remove] = useMutation<removedData, removeVariables>(removeUserQuery, {
     variables: { id: props.user.id },
   });
 
@@ -36,7 +36,7 @@ export default function User(props: UserProps) {
   };
 
   return (
-    <tr>
+    <>
       <td>{props.user.username}</td>
       <td>{props.user.email}</td>
       <td>
@@ -54,6 +54,6 @@ export default function User(props: UserProps) {
           REMOVE
         </button>
       </td>
-    </tr>
+    </>
   );
 }

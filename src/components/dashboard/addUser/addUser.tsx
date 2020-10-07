@@ -38,7 +38,7 @@ export default function AddUser(
   }
 ) {
   const [formValues, setFormValues] = useState(initialValues);
-  const [signUp, { error, data }] = useMutation<signUpData, signUpVariables>(signUpQuery, {
+  const [signUp] = useMutation<signUpData, signUpVariables>(signUpQuery, {
     variables: {
       username: formValues.Username,
       email: formValues.Email,

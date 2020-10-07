@@ -1,5 +1,4 @@
 import React from 'react';
-import { useQuery } from 'react-apollo';
 
 import AllItems from './allItems/allItems';
 import SearchItems from './searchItems/searchItems';

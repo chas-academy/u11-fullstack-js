@@ -33,15 +33,9 @@ export default function Dashboard() {
     token = localStorage.getItem('accessToken');
   }
 
-  const { error, data: adminData } = useQuery<adminData, adminVariables>(getUserQuery, {
+  const { data: adminData } = useQuery<adminData, adminVariables>(getUserQuery, {
     variables: {
       accessToken: token,
-    },
-    onCompleted: () => {
-      console.log(data);
-    },
-    onError: () => {
-      console.log(error);
     },
   });
 
@@ -70,17 +64,6 @@ export default function Dashboard() {
     });
   };
 
-  // window.onclick = function (e: any) {
-  //   if (
-  //     !e.target.matches('.form-container') &&
-  //     !e.target.matches('#addUser') &&
-  //     !e.target.matches('#editUser') &&
-  //     !e.target.matches('.noClose')
-  //   ) {
-  //     setIsOpen({ addUser: false, editUser: false });
-  //   }
-  // };
-
   return (
     <div className={`${styles.container} bg-primary shadowed`}>
       <div className={styles.left}>
@@ -94,16 +77,26 @@ export default function Dashboard() {
       <div className={styles.right}>
         <table>
           <thead>
-            <th>Username</th>
-            <th colSpan={3}>Email</th>
+            <tr>
+              <th>Username</th>
+              <th colSpan={3}>Email</th>
+            </tr>
           </thead>
-          {loading ? (
-            <div>Loading users....</div>
-          ) : (
-            data?.users.map((user, i) => {
-              return <User user={user} showHoverBox={showHoverBox} />;
-            })
-          )}
+          <tbody>
+            {loading ? (
+              <tr>
+                <td>Loading users....</td>
+              </tr>
+            ) : (
+              data?.users.map((user, i) => {
+                return (
+                  <tr key={i}>
+                    <User user={user} showHoverBox={showHoverBox} />
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
         </table>
         <button className={`${styles.button} btn`} id="addUser" onClick={(e) => showHoverBox(e)}>
           +

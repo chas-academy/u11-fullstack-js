@@ -27,8 +27,12 @@ const AllItems = () => {
         {loading ? (
           <div>Loading products...</div>
         ) : (
-          data?.products.map((item) => {
-            return <Item item={item} />;
+          data?.products.map((item, i) => {
+            return (
+              <div key={i}>
+                <Item item={item} />
+              </div>
+            );
           })
         )}
       </div>

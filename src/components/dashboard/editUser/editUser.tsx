@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from 'react-apollo';
 
-import Form from '../../form/form';
 import styles from '../../form/form.module.css';
 import { updateUserQuery, getUserByIdQuery } from '../../../queries/user-queries';
 
@@ -48,7 +47,7 @@ export default function EditUser(
     id = sessionStorage.getItem('userID');
   }
   const [formValues, setFormValues] = useState(initialValues);
-  const { error: userError, data: userData } = useQuery<userData, userVariables>(getUserByIdQuery, {
+  const { data: userData } = useQuery<userData, userVariables>(getUserByIdQuery, {
     variables: {
       id: sessionStorage.getItem('userID'),
     },
