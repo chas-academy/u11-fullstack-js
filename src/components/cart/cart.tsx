@@ -46,7 +46,7 @@ const Cart = () => {
       accessToken: token,
     },
     onCompleted: () => {
-      window.location.replace('/orderConfirmation');
+      window.location.replace('/#/orderConfirmation');
     },
   });
 
