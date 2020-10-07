@@ -13,7 +13,7 @@ import SignUpPage from './pages/signUpPage/signUp';
 import LoginPage from './pages/loginPage/login';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://fierce-inlet-69818.herokuapp.com/graphql',
 });
 
 function App() {
