@@ -45,9 +45,14 @@ const Header = () => {
       </div>
       {localStorage.getItem('accessToken') ? (
         <div className={styles.buttons}>
-          <Link to="/cart" onClick={() => window.location.replace('/#/cart')}>
-            <img src={Cart} alt="" />
-          </Link>
+          <img
+            src={Cart}
+            alt=""
+            onClick={() => {
+              window.location.replace('/#/cart');
+              window.location.reload();
+            }}
+          />
           <div>
             <b>{data?.user.email}</b>
           </div>
@@ -57,9 +62,14 @@ const Header = () => {
         </div>
       ) : (
         <div className={styles.buttons}>
-          <Link to="/cart" onClick={() => window.location.replace('/#/cart')}>
-            <img src={Cart} alt="" />
-          </Link>
+          <img
+            src={Cart}
+            alt=""
+            onClick={() => {
+              window.location.replace('/#/cart');
+              window.location.reload();
+            }}
+          />
           <Link className={`btn`} to="/signUp">
             Sign Up
           </Link>
