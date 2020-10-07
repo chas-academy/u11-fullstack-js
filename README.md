@@ -1,12 +1,13 @@
 # RL ITEMS WEBSHOP
 
 Site can be found at: http://rlitems.emilbabra.se
-Admin user:
+
+#### Admin user:
 
 - email: brittsboemil@gmail.com
 - password: changed
 
-Regular user:
+#### Regular user:
 
 - email: emil.babra@chasacademy.se
 - password: changed
