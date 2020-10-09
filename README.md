@@ -1,6 +1,6 @@
 # RL ITEMS WEBSHOP
 
-Site can be found at: http://rlitems.emilbabra.se  
+Site can be found at: https://rlitems.emilbabra.se  
 Back-end can be found at: https://github.com/Babryz/u11-back-end  
 Designs, personas and target audience: https://www.figma.com/file/QiFILvLrAIh65AI7KXoCP8/U11-fullstack-js  
 Basic planning and user stories: https://docs.google.com/document/d/1G2i528Vc0KFgrx8OyeDy-ZY8ZqUMiRcT-3Jk1mQyfIY/edit?usp=sharing
