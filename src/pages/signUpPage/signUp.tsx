@@ -47,7 +47,7 @@ export default function SignUpPage(
       return;
     }
     if (res.data) {
-      window.location.replace('/login');
+      window.location.replace('/#/login');
     }
   };
 
