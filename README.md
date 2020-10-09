@@ -16,5 +16,10 @@ Designs, personas and target audience: https://www.figma.com/file/QiFILvLrAIh65A
 
 ### Things left to do:
 
+- Add button in admin dashboard on mobile opens the addUser modal off screen very high up.
 - Add error handling on all forms and queries. (Needs back-end fix to.)
-- Fix so user is forced to be logged in to shop. (If time, no requirment)(Maybe with cart in localstorage and send logged in state to back-end).
+- Fix so user is not forced to be logged in to shop. (If time, no requirment)(Maybe with cart in localstorage and send logged or not in state to back-end).
+
+### Notes:
+
+- When it comes to error handling, the reason it isn't there is because I created a GraphQL-API instead of a restAPI. This project that I've made with a restAPI has error handling: https://github.com/Babryz/Project-Manager
