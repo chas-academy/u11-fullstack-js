@@ -4,6 +4,8 @@ Site can be found at: http://rlitems.emilbabra.se
 Back-end can be found at: https://github.com/Babryz/u11-back-end
 Designs, personas and target audience: https://www.figma.com/file/QiFILvLrAIh65AI7KXoCP8/U11-fullstack-js
 
+### You have to be logged in to be able to shop on the site. Please use these users downbelow or create your own one.
+
 #### Admin user:
 
 - email: brittsboemil@gmail.com
