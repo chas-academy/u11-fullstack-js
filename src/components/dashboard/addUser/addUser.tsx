@@ -21,14 +21,6 @@ interface signUpData {
   };
 }
 
-interface formValues {
-  Username: string;
-  Email: string;
-  Password: string;
-}
-
-// NEED TO FIX SO FORMVALUES INTERFACE WORKS
-
 export default function AddUser(
   props: addProps,
   initialValues: any = {
@@ -51,7 +43,6 @@ export default function AddUser(
     const res = await signUp();
 
     if (res.errors) {
-      console.log(res.errors);
       return;
     } else if (res.data) {
       window.location.reload();

@@ -3,18 +3,6 @@ import React from 'react';
 import AllItems from './allItems/allItems';
 import SearchItems from './searchItems/searchItems';
 
-interface productsData {
-  products: productData[];
-}
-
-interface productData {
-  id: string;
-  name: string;
-  type: string;
-  price: number;
-  img: string;
-}
-
 interface searchVariables {
   searchTerm: string;
 }

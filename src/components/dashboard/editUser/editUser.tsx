@@ -59,9 +59,6 @@ export default function EditUser(
         Password: userData?.userById.password,
       });
     },
-    onError: () => {
-      console.log(sessionStorage.getItem('userID'));
-    },
   });
   const [updateUser] = useMutation<updatedData, updateVariables>(updateUserQuery, {
     variables: {
@@ -76,7 +73,6 @@ export default function EditUser(
     const res = await updateUser();
 
     if (res.errors) {
-      console.log(res.errors);
       return;
     } else if (res.data) {
       window.location.reload();
@@ -88,7 +84,6 @@ export default function EditUser(
       ...formValues,
       [e.target.name]: e.target.value,
     });
-    console.log(formValues);
   };
 
   let user;

@@ -3,7 +3,6 @@ import { useMutation } from 'react-apollo';
 
 import styles from './item.module.css';
 import { addToCartQuery } from '../../../queries/product-queries';
-// import images from '../../../images/products';
 
 interface itemProps {
   item: {
@@ -42,15 +41,12 @@ const Item = (props: itemProps) => {
   const { id, name, price, type, img } = props.item;
   const [added, setAdded] = useState(false);
 
-  const [addToCart, { error }] = useMutation<cartData, cartVariables>(addToCartQuery, {
+  const [addToCart] = useMutation<cartData, cartVariables>(addToCartQuery, {
     variables: {
       accessToken: token,
       itemId: id,
       name: name,
       price: price,
-    },
-    onError: () => {
-      console.log(error);
     },
   });
 

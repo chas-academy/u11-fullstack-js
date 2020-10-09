@@ -44,7 +44,6 @@ export default function SignUpPage(
     e.preventDefault();
     const res = await signUp();
     if (res.errors) {
-      console.log(res.errors);
       return;
     }
     if (res.data) {

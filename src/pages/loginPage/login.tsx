@@ -45,7 +45,6 @@ const LoginPage = (
     const res = await login();
 
     if (error) {
-      console.log(error);
       return;
     }
     if (res.data) {

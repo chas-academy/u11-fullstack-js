@@ -30,15 +30,9 @@ const OrderConfirmation = () => {
     token = localStorage.getItem('accessToken');
   }
 
-  const { loading, error, data } = useQuery<orderData, orderVariables>(getOrderQuery, {
+  const { loading, data } = useQuery<orderData, orderVariables>(getOrderQuery, {
     variables: {
       accessToken: token,
-    },
-    onCompleted: () => {
-      console.log(data);
-    },
-    onError: () => {
-      console.log(error);
     },
   });
   const calcSum = () => {

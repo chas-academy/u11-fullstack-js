@@ -15,12 +15,6 @@ interface FromProps {
   closeModal: Function;
 }
 
-interface UserData {
-  email: string;
-  username: string;
-  password: string;
-}
-
 const Form = (props: FromProps) => {
   return (
     <div className={`${styles.container} bg-primary shadowed form-container`}>
