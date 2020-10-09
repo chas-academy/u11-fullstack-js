@@ -27,4 +27,4 @@ Basic planning and user stories: https://docs.google.com/document/d/1G2i528Vc0KF
 
 ### Notes:
 
-- When it comes to error handling, the reason it isn't much of it is because I created a GraphQL-API instead of a restAPI. This project that I've made with a restAPI has error handling: https://github.com/Babryz/Project-Manager
+- When it comes to error handling, the reason it isn't much of it is because I created a GraphQL-API instead of a restAPI and didnt know how to implement it since it was a bit new to me. This project that I've made with a restAPI has error handling: https://github.com/Babryz/Project-Manager
